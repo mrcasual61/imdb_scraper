@@ -57,7 +57,6 @@ function get_movies($dom) {
 			$stars = "";
 			// Get all text for the div.
 			$all_text = html_entity_decode($div_class->plaintext);
-			//echo $all_text . "<br />";
 			// Find starting poit for Directors.
 			$director_start = strpos($all_text, "Director") + 10;
 			// Find ending point for Stars.
@@ -122,12 +121,10 @@ function more_info() {
 		// Get storyline.
 		$storyline_section = $dom->find("#titleStoryLine", 0);
 		$storyline = $storyline_section->getElementsByTagName('p');
-		//echo $storyline[0] . "**<br /><br />";
 		$movies[$i]['storyline'] = trim(html_entity_decode($storyline[0]->plaintext));
 
 		// Get release date.
 		$release_date_section = $dom->find("#titleDetails", 0)->plaintext;
-		//echo $release_date_section . "<br /><br />";
 
 		// Find starting poit for Release Date.
 		$release_start = strpos($release_date_section, "Release Date:");
