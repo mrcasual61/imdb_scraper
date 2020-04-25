@@ -88,7 +88,7 @@ function get_movies($dom) {
 			$movies[$i]['image_src'] = $image_src;
 		
 			$i++;
-			if ($i == 2) {
+			if ($i == 10) {
 				break;
 			}
 		}
@@ -116,7 +116,6 @@ function more_info() {
 	$count = count($movies);
 
 	for ($i = 0; $i < $count; $i++) {
-		//echo $i . " - " . $movies[$i]['link'] . "<br />";
 		$link = "https://www.imdb.com" . $movies[$i]['link'];
 		// Get dom.
 		get_dom($link, "more_info");
@@ -229,9 +228,5 @@ function create_csv() {
 get_dom("https://www.imdb.com/search/title/?title_type=movie&genres=sci-fi&sort=user_rating,desc&explore=title_type,genres", "get_movies");
 
 echo json_encode($movies);
-/*
-echo '<pre>';
-print_r($movies);
-echo '</pre>';
-*/
+
 ?>

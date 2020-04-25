@@ -6,18 +6,6 @@
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>          
 <script type="text/javascript">
-    // Check if the page has loaded completely
-    /*                                       
-    $(document).ready( function() { 
-        $('#php_output').load('scifi_scraper.php', function(response, status, http) { 
-            if(status == "success") 
-                $("#spinner").hide();
-            	$("#php_output").show();
-            if(status == "error") 
-                alert("Error: " + http.status + ": " + http.statusText); 
-        });
-    });
-*/
     $(document).ready( function() { 
 	    $.ajax({
 	        type: "GET",
@@ -25,7 +13,6 @@
 	        dataType: "json",
 	        async: false,
 	        success: function(JSONObject) {
-	        	//var len = data.movies.length;
 	        	var content = "";
 	        	for (var key in JSONObject) {
 	        		if (JSONObject.hasOwnProperty(key)) {
